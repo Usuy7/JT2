@@ -18,7 +18,6 @@ public class CountWord {
         Scanner teclado = new Scanner(System.in);
 
         String sentence, word;
-        int counter;
 
         do {
             System.out.println("Introduce la oración: ");
@@ -34,6 +33,14 @@ public class CountWord {
 
         sentence.toLowerCase();
         word.toLowerCase();
+    }
+    
+    public static int CountWords (String sentence, String word){
+        
+        int counter = 0;
+        
+        
+        return counter;
     }
 
     public static void main(String[] args) {
