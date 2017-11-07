@@ -24,7 +24,7 @@ public class CountWord {
             sentence = teclado.nextLine();
 
         } while (sentence.isEmpty());
-
+ 
         do {
             System.out.print("¿Qué palabra quieres contar? ");
             word = teclado.nextLine();
