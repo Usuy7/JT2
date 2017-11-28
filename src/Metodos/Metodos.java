@@ -126,4 +126,37 @@ public class Metodos {
         }
         return numbers;
     }
+    
+    public static boolean esPalabra(String palabra) {
+        
+        palabra.toLowerCase();
+        boolean result = false;
+        String letras="abcdefghyjklmnñopqrstuvwxyz";
+        
+        
+        for (int i = 0; i < palabra.length(); i++) {
+            if (letras.indexOf(palabra.charAt(i),0)!=-1) result = false;
+        }
+        result = true;
+        return result;
+    }
+    
+    public static boolean esAlfaNumerica(String cadena) {
+    for(int i = 0; i < cadena.length(); ++i) {
+        char caracter = cadena.charAt(i);
+        
+        if(!Character.isLetter(caracter)) {
+            return false;
+        }
+    }
+    return true;
+}
+    
+    public static int CountWords (String sentence, String word){
+        
+        int counter = 0;
+        
+        
+        return counter;
+    }
 }

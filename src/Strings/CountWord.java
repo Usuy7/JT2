@@ -1,5 +1,5 @@
 package Strings;
-
+import Metodos.Metodos;
 import java.util.Scanner;
 
 /**
@@ -17,31 +17,17 @@ public class CountWord {
 
         Scanner teclado = new Scanner(System.in);
 
-        String sentence, word;
+        String sentence, word = "";
 
-        do {
-            System.out.println("Introduce la oración: ");
-            sentence = teclado.nextLine();
-
-        } while (sentence.isEmpty());
- 
-        do {
-            System.out.print("¿Qué palabra quieres contar? ");
-            word = teclado.nextLine();
-            
-        } while (word.isEmpty());
-
-        sentence.toLowerCase();
-        word.toLowerCase();
+        
+        boolean word2 = Boolean.parseBoolean(word);
+        word2 = Metodos.esAlfaNumerica(word);
+        
+        System.out.println(word2);
+        
     }
     
-    public static int CountWords (String sentence, String word){
-        
-        int counter = 0;
-        
-        
-        return counter;
-    }
+    
 
     public static void main(String[] args) {
         new CountWord();
