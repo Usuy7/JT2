@@ -59,7 +59,7 @@ public class Metodos {
         }
         return primo;
     }
-    
+
     public static boolean esPerfecto(int num) {
 
         int suma = 0;
@@ -126,37 +126,60 @@ public class Metodos {
         }
         return numbers;
     }
-    
+
     public static boolean esPalabra(String palabra) {
-        
+
         palabra.toLowerCase();
         boolean result = false;
-        String letras="abcdefghyjklmnñopqrstuvwxyz";
-        
-        
+        String letras = "abcdefghyjklmnñopqrstuvwxyz";
+
         for (int i = 0; i < palabra.length(); i++) {
-            if (letras.indexOf(palabra.charAt(i),0)!=-1) result = false;
+            if (letras.indexOf(palabra.charAt(i), 0) != -1) {
+                result = false;
+            }
         }
         result = true;
         return result;
     }
-    
+
     public static boolean esAlfaNumerica(String cadena) {
-    for(int i = 0; i < cadena.length(); ++i) {
-        char caracter = cadena.charAt(i);
+
+        boolean result = false;
         
-        if(!Character.isLetter(caracter)) {
-            return false;
+        for (int i = 0; i < cadena.length(); ++i) {
+            
+            char caracter = cadena.charAt(i);
+            
+            if (!Character.isLetterOrDigit(caracter)) {
+                result = false;
+            } else result = true;
         }
+        return result;
     }
-    return true;
-}
     
-    public static int CountWords (String sentence, String word){
+    public static String test_esAlfaNumerica(String cadena) {
+
         
+        for (int i = 0; i < cadena.length(); ++i) {
+            
+            char caracter = cadena.charAt(i);
+            
+            if (!Character.isLetterOrDigit(caracter)) {
+                while (!Character.isLetterOrDigit(caracter)) {
+                System.out.print("Ingresa una cadena alfanúmerico: ");
+                cadena = tec.nextLine();
+            }
+            } 
+        }
+        return cadena;
+    }
+    
+    
+
+    public static int CountWords(String sentence, String word) {
+
         int counter = 0;
-        
-        
+
         return counter;
     }
 }
