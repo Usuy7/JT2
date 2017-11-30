@@ -18,24 +18,12 @@ public class AlfaNum {
 
         Scanner tec = new Scanner(System.in);
 
-        String sentence, word = "??";
-        boolean word2;
+        String sentence, word;
+        word = tec.nextLine();
+        word = Metodos.test_esAlfaNumerica(word);
+        System.out.println(word);
 
-        word2 = Boolean.parseBoolean(word);
-        word2 = Metodos.esAlfaNumerica(word);
-
-        System.out.println(word2);
-
-        if (word2 == false) {
-            while (word2 == false) {
-                System.out.print("Ingresa un cadena alfanúmerico: ");
-                word = tec.nextLine();
-                word2 = Boolean.parseBoolean(word);
-                word2 = Metodos.esAlfaNumerica(word);
-            }
-        }
-
-        System.out.println(word2);
+        
 
     }
 

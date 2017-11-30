@@ -145,36 +145,47 @@ public class Metodos {
     public static boolean esAlfaNumerica(String cadena) {
 
         boolean result = false;
-        
+
         for (int i = 0; i < cadena.length(); ++i) {
-            
+
             char caracter = cadena.charAt(i);
-            
+
             if (!Character.isLetterOrDigit(caracter)) {
                 result = false;
-            } else result = true;
+            } else {
+                result = true;
+            }
         }
         return result;
     }
-    
+
     public static String test_esAlfaNumerica(String cadena) {
 
-        
-        for (int i = 0; i < cadena.length(); ++i) {
-            
-            char caracter = cadena.charAt(i);
-            
-            if (!Character.isLetterOrDigit(caracter)) {
-                while (!Character.isLetterOrDigit(caracter)) {
-                System.out.print("Ingresa una cadena alfanúmerico: ");
+        if (cadena.equals("")) {
+
+            while (cadena.equals("")) {
+                System.out.println("Introduce algún dato: ");
                 cadena = tec.nextLine();
             }
-            } 
+
+            for (int i = 0; i < cadena.length(); i++) {
+
+                char caracter = cadena.charAt(i);
+
+                if (!Character.isLetterOrDigit(caracter)) {
+                    while (!Character.isLetterOrDigit(caracter)) {
+                        System.out.print("Ingresa una cadena alfanúmerico: ");
+                        cadena = tec.nextLine();
+                        i = 0;
+                        caracter = cadena.charAt(i);
+
+                    }
+                }
+            }
         }
+
         return cadena;
     }
-    
-    
 
     public static int CountWords(String sentence, String word) {
 
