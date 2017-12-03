@@ -144,6 +144,7 @@ public class Metodos {
 
     public static boolean esAlfaNumerica(String cadena) {
 
+        cadena.toLowerCase();
         boolean result = false;
 
         for (int i = 0; i < cadena.length(); ++i) {
@@ -161,10 +162,10 @@ public class Metodos {
 
     public static String test_esAlfaNumerica(String cadena) {
 
-        if (cadena.equals("")) {
-
+        cadena.toLowerCase();
+        do {
             while (cadena.equals("")) {
-                System.out.println("Introduce algún dato: ");
+                System.out.println("Ingresa algún dato: ");
                 cadena = tec.nextLine();
             }
 
@@ -174,7 +175,7 @@ public class Metodos {
 
                 if (!Character.isLetterOrDigit(caracter)) {
                     while (!Character.isLetterOrDigit(caracter)) {
-                        System.out.print("Ingresa una cadena alfanúmerico: ");
+                        System.out.print("Ingresa una cadena alfanúmerica: ");
                         cadena = tec.nextLine();
                         i = 0;
                         caracter = cadena.charAt(i);
@@ -182,7 +183,7 @@ public class Metodos {
                     }
                 }
             }
-        }
+        } while (!cadena.equals(""));
 
         return cadena;
     }
