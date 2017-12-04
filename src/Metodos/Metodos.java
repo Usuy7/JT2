@@ -160,33 +160,111 @@ public class Metodos {
         return result;
     }
 
-    public static String test_esAlfaNumerica(String cadena) {
+    public static String test_esLetra(String cadena) {
 
-        cadena.toLowerCase();
+        boolean val = false;
+
+        cadena = cadena.toLowerCase();
+
         do {
+
             while (cadena.equals("")) {
                 System.out.println("Ingresa algún dato: ");
                 cadena = tec.nextLine();
             }
-
+            
             for (int i = 0; i < cadena.length(); i++) {
+                
+                val = true;
 
-                char caracter = cadena.charAt(i);
-
-                if (!Character.isLetterOrDigit(caracter)) {
-                    while (!Character.isLetterOrDigit(caracter)) {
-                        System.out.print("Ingresa una cadena alfanúmerica: ");
-                        cadena = tec.nextLine();
-                        i = 0;
-                        caracter = cadena.charAt(i);
-
-                    }
+                if (!Character.isLetter(cadena.charAt(i))) {
+                    val = false;
                 }
             }
-        } while (!cadena.equals(""));
+            if (!val) {
+                System.out.print("Error, ingresa una cadena alfabetica: ");
+                cadena = tec.nextLine();
+            }
+        } while (!val);
 
         return cadena;
     }
+    
+    public static int test_esNumber(int num) {
+
+        boolean val = false;
+        
+        String cadena = String.valueOf(num);
+        cadena = cadena.toLowerCase();
+
+        do {
+
+            while (cadena.equals("")) {
+                System.out.println("Ingresa algún dato: ");
+                cadena = tec.nextLine();
+            }
+            
+            for (int i = 0; i < cadena.length(); i++) {
+                
+                val = true;
+
+                if (!Character.isDigit(cadena.charAt(i))) {
+                    val = false;
+                }
+            }
+            if (!val) {
+                System.out.print("Error, ingresa un número: ");
+                cadena = tec.nextLine();
+            }
+        } while (!val);
+        
+        num = Integer.parseInt(cadena);
+
+        return num;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public static int CountWords(String sentence, String word) {
 

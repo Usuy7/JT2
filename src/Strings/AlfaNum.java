@@ -18,13 +18,12 @@ public class AlfaNum {
 
         Scanner tec = new Scanner(System.in);
 
-        String sentence, word;
-        word = tec.nextLine();
-        word = Metodos.test_esAlfaNumerica(word);
-        System.out.println(word);
-
+        int num;
         
-
+        System.out.print("Introduce un número: ");
+        num = tec.nextInt();
+        
+        num = Metodos.test_esNumber(num);
     }
 
     public static void main(String[] args) {
