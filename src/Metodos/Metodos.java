@@ -127,24 +127,9 @@ public class Metodos {
         return numbers;
     }
 
-    public static boolean esPalabra(String palabra) {
-
-        palabra.toLowerCase();
-        boolean result = false;
-        String letras = "abcdefghyjklmnñopqrstuvwxyz";
-
-        for (int i = 0; i < palabra.length(); i++) {
-            if (letras.indexOf(palabra.charAt(i), 0) != -1) {
-                result = false;
-            }
-        }
-        result = true;
-        return result;
-    }
-
     public static boolean esAlfaNumerica(String cadena) {
 
-        cadena.toLowerCase();
+        cadena = cadena.toLowerCase();
         boolean result = false;
 
         for (int i = 0; i < cadena.length(); ++i) {
@@ -169,7 +154,7 @@ public class Metodos {
         do {
 
             while (cadena.equals("")) {
-                System.out.println("Ingresa algún dato: ");
+                System.out.print("Ingresa algún dato: ");
                 cadena = tec.nextLine();
             }
             

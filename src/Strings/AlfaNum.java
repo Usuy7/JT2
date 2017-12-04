@@ -14,16 +14,50 @@ import java.util.Scanner;
  */
 public class AlfaNum {
 
+    static Scanner tec = new Scanner(System.in);
+
     public AlfaNum() {
 
-        Scanner tec = new Scanner(System.in);
-
+        boolean val = false;
         int num;
-        
-        System.out.print("Introduce un número: ");
+
+        System.out.print("Ingresa un número: ");
         num = tec.nextInt();
-        
-        num = Metodos.test_esNumber(num);
+
+        String cadena = String.valueOf(num);
+        num = Integer.parseInt(cadena);
+        System.out.println(num);
+
+    }
+
+    public static String test_esNumber(String cadena) {
+
+        boolean val = false;
+
+        cadena = cadena.toLowerCase();
+
+        do {
+
+            while (cadena.equals("")) {
+                System.out.print("Ingresa algún dato: ");
+                cadena = tec.nextLine();
+            }
+
+            for (int i = 0; i < cadena.length(); i++) {
+
+                val = true;
+
+                if (!Character.isLetter(cadena.charAt(i))) {
+                    val = false;
+                }
+            }
+            if (!val) {
+                System.out.print("Error, ingresa una cadena alfabetica: ");
+                cadena = tec.nextLine();
+            }
+        } while (!val);
+
+        return cadena;
     }
 
     public static void main(String[] args) {
