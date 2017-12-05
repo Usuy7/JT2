@@ -21,10 +21,12 @@ public final class CountWords {
         System.out.print("Introduce una frase: ");
         String sentence = tec.nextLine();
         sentence = Metodos.test_esLetra(sentence);
+        sentence = sentence.toLowerCase();
         
         System.out.println("Ingresa la palabra a buscar: ");
         String word = tec.nextLine();
         word = Metodos.test_esLetra(word);
+        word = word.toLowerCase();
         
         int count = CountWord(sentence, word);
         
