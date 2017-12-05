@@ -146,11 +146,9 @@ public class Metodos {
         return result;
     }
 
-    public static String test_esLetra(String cadena) throws IOException{
+    public static String test_esLetra(String cadena) throws IOException {
 
         boolean val = false;
-
-        cadena = cadena.toLowerCase();
 
         do {
 
@@ -158,9 +156,9 @@ public class Metodos {
                 System.out.print("Ingresa algún dato: ");
                 cadena = tec.nextLine();
             }
-            
+
             for (int i = 0; i < cadena.length(); i++) {
-                
+
                 val = true;
 
                 if (!Character.isLetter(cadena.charAt(i))) {
@@ -175,8 +173,8 @@ public class Metodos {
 
         return cadena;
     }
-    
-    public static String test_esNumber(String cadena) throws IOException{
+
+    public static String test_esNumber(String cadena) throws IOException {
 
         boolean val = false;
 
@@ -206,7 +204,7 @@ public class Metodos {
         return cadena;
     }
 
-    public static int CountWords(String sentence, String word) {
+    public static int CountWord(String sentence, String word) {
 
         int counter = 0;
 
