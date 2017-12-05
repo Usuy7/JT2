@@ -210,4 +210,25 @@ public class Metodos {
 
         return counter;
     }
+
+    public static int CountWords(String sentence) {
+        int cont = 0;
+        boolean palabra = false;
+        int finDeLinea = sentence.length() - 1;
+
+        for (int i = 0; i < sentence.length(); i++) {
+            // Si el char es una letra y no es el final de la frase, word = true.
+            if (Character.isLetter(sentence.charAt(i)) && i != finDeLinea) {
+                palabra = true;
+                // Si el char no es una letra y aún hay más letras, el contador continua.
+            } else if (!Character.isLetter(sentence.charAt(i)) && palabra) {
+                cont++;
+                palabra = false;
+                // si es la última palabra de la cadena; si no termina con una no letra ,
+            } else if (Character.isLetter(sentence.charAt(i)) && i == finDeLinea) {
+                cont++;
+            }
+        }
+        return cont;
+    }
 }
