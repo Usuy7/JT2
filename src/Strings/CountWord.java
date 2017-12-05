@@ -12,9 +12,9 @@ import java.util.Scanner;
  * el programa me dirá “la palabra ,el, aparece 2 veces en la frase”.
  */
 
-public final class CountWords {
+public final class CountWord {
     
-    public CountWords() throws IOException {
+    public CountWord() throws IOException {
         
         Scanner tec = new Scanner (System.in);
         
@@ -23,23 +23,45 @@ public final class CountWords {
         sentence = Metodos.test_esLetra(sentence);
         sentence = sentence.toLowerCase();
         
-        System.out.println("Ingresa la palabra a buscar: ");
+        System.out.print("Ingresa la palabra a buscar: ");
         String word = tec.nextLine();
         word = Metodos.test_esLetra(word);
         word = word.toLowerCase();
         
-        int count = CountWord(sentence, word);
+        int count = CountWord(sentence);
         
         if (count == 0){
             System.out.println("La palabra " + word + " no aparece");
         } else if (count == 1) {
             System.out.println("La palabra " + word + " aparece " + count + " vez");
         } else if (count > 1) {
-           System.out.println("La palabra " + word + " aparece " + count + " veces");
+            System.out.println("La palabra " + word + " aparece " + count + " veces");
         }
     }
     
-    public int CountWord (String sentence, String word){
+    public int CountWord(String sentence){    
+    int conteoPalabras = 0;    
+    boolean palabra = false;
+    int finDeLinea = sentence.length() - 1;
+
+    for (int i = 0; i < sentence.length(); i++) {
+        // Si el char is una letra, word = true.
+        if (Character.isLetter(sentence.charAt(i)) && i != finDeLinea) {
+            palabra = true;
+            // Si el char no es una letra y aún hay más letras,
+            // el contador continua.
+        } else if (!Character.isLetter(sentence.charAt(i)) && palabra) {
+            conteoPalabras++;
+            palabra = false;
+            // última palabra de la cadena; si no termina con una no letra ,
+        } else if (Character.isLetter(sentence.charAt(i)) && i == finDeLinea) {
+            conteoPalabras++;
+        }
+    }
+    return conteoPalabras;
+}
+    
+    public int CountWords (String sentence, String word){
         
         
         
@@ -49,6 +71,6 @@ public final class CountWords {
     }
     
     public static void main(String[] args) throws IOException {
-        new CountWords();
+        new CountWord();
     }
 }
