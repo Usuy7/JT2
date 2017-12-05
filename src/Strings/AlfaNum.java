@@ -1,6 +1,7 @@
 package Strings;
 
 import Metodos.Metodos;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -16,51 +17,22 @@ public class AlfaNum {
 
     static Scanner tec = new Scanner(System.in);
 
-    public AlfaNum() {
+    public AlfaNum() throws IOException{
 
         boolean val = false;
         int num;
 
         System.out.print("Ingresa un número: ");
-        num = tec.nextInt();
-
-        String cadena = String.valueOf(num);
+        String cadena = tec.nextLine();
+        cadena = Metodos.test_esNumber(cadena);
         num = Integer.parseInt(cadena);
         System.out.println(num);
 
     }
 
-    public static String test_esNumber(String cadena) {
+    
 
-        boolean val = false;
-
-        cadena = cadena.toLowerCase();
-
-        do {
-
-            while (cadena.equals("")) {
-                System.out.print("Ingresa algún dato: ");
-                cadena = tec.nextLine();
-            }
-
-            for (int i = 0; i < cadena.length(); i++) {
-
-                val = true;
-
-                if (!Character.isLetter(cadena.charAt(i))) {
-                    val = false;
-                }
-            }
-            if (!val) {
-                System.out.print("Error, ingresa una cadena alfabetica: ");
-                cadena = tec.nextLine();
-            }
-        } while (!val);
-
-        return cadena;
-    }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new AlfaNum();
     }
 }

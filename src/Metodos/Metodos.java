@@ -1,5 +1,6 @@
 package Metodos;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -145,7 +146,7 @@ public class Metodos {
         return result;
     }
 
-    public static String test_esLetra(String cadena) {
+    public static String test_esLetra(String cadena) throws IOException{
 
         boolean val = false;
 
@@ -175,22 +176,21 @@ public class Metodos {
         return cadena;
     }
     
-    public static int test_esNumber(int num) {
+    public static String test_esNumber(String cadena) throws IOException{
 
         boolean val = false;
-        
-        String cadena = String.valueOf(num);
+
         cadena = cadena.toLowerCase();
 
         do {
 
             while (cadena.equals("")) {
-                System.out.println("Ingresa algún dato: ");
+                System.out.print("Ingresa algún dato: ");
                 cadena = tec.nextLine();
             }
-            
+
             for (int i = 0; i < cadena.length(); i++) {
-                
+
                 val = true;
 
                 if (!Character.isDigit(cadena.charAt(i))) {
@@ -198,58 +198,13 @@ public class Metodos {
                 }
             }
             if (!val) {
-                System.out.print("Error, ingresa un número: ");
+                System.out.print("Error, ingresa un número entero: ");
                 cadena = tec.nextLine();
             }
         } while (!val);
-        
-        num = Integer.parseInt(cadena);
 
-        return num;
+        return cadena;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public static int CountWords(String sentence, String word) {
 
