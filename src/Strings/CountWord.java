@@ -2,6 +2,7 @@ package Strings;
 
 import Metodos.Metodos;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,6 @@ import java.util.Scanner;
  * frase es “el programa en java pide el dato al usuario” y la palabra es “el”,
  * el programa me dirá “la palabra ,el, aparece 2 veces en la frase”.
  */
-
 public final class CountWord {
 
     public CountWord() throws IOException {
@@ -25,7 +25,7 @@ public final class CountWord {
         sentence = sentence.toLowerCase();
         int countW = Metodos.CountWords(sentence);
         System.out.println("Esta frase está compuesta por " + countW + " palabras");
-         
+
         System.out.print("Ingresa la palabra a buscar: ");
         String word = tec.nextLine();
         word = Metodos.test_esLetra(word);
@@ -39,6 +39,13 @@ public final class CountWord {
         } else if (count > 1) {
             System.out.println("La palabra " + word + " aparece " + count + " veces");
         }
+
+        long cont;
+        System.out.println(cont = countString(sentence, word));
+    }
+
+    public static long countString(String sentence, String word) {
+        return Arrays.stream(sentence.split("[ ,\\.'']")).filter(s -> s.equals(word)).count();
     }
 
     public int CountWord(String sentence, String word) {
