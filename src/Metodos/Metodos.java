@@ -220,6 +220,7 @@ public class Metodos {
             // Si el char es una letra y no es el final de la frase, word = true.
             if (Character.isLetter(sentence.charAt(i)) && i != finDeLinea) {
                 palabra = true;
+                
                 // Si el char no es una letra y aún hay más letras, el contador continua.
             } else if (!Character.isLetter(sentence.charAt(i)) && palabra) {
                 cont++;
