@@ -15,33 +15,31 @@ import java.util.Scanner;
  * el programa me dirá “la palabra ,el, aparece 2 veces en la frase”.
  */
 public final class CountWord {
-
+    
     public CountWord() throws IOException {
 
         Scanner tec = new Scanner(System.in);
+        
+        String sentence, word;
+        int cont = 0;
 
         System.out.print("Introduce una frase: ");
-        String sentence = tec.nextLine();
-        sentence = sentence.toLowerCase();
-        int countW = Metodos.CountWords(sentence);
-        System.out.println("Esta frase está compuesta por " + countW + " palabras");
+        sentence = tec.nextLine();
 
         System.out.print("Ingresa la palabra a buscar: ");
-        String word = tec.nextLine();
+        word = tec.nextLine();
         word = Metodos.test_esLetra(word);
         word = word.toLowerCase();
-        int count = Metodos.CountWord(sentence, word);
 
-        if (count == 0) {
+        if (cont == 0) {
             System.out.println("La palabra " + word + " no aparece");
-        } else if (count == 1) {
-            System.out.println("La palabra " + word + " aparece " + count + " vez");
-        } else if (count > 1) {
-            System.out.println("La palabra " + word + " aparece " + count + " veces");
+        } else if (cont == 1) {
+            System.out.println("La palabra " + word + " aparece " + cont + " vez");
+        } else if (cont > 1) {
+            System.out.println("La palabra " + word + " aparece " + cont + " veces");
         }
-
-        long cont;
-        System.out.println(cont = countString(sentence, word));
+        
+        System.out.println(cont = (int) countString(sentence, word));
     }
 
     public static long countString(String sentence, String word) {
@@ -49,8 +47,19 @@ public final class CountWord {
     }
 
     public int CountWord(String sentence, String word) {
+        
+        int pos, cont = 0;
+        //Uso el string indexOf para que busque la 1º posición dónde aparece, o -1 si no la encuentra
+        pos = sentence.indexOf(word);
+        //Mientras que la encuentre, que las vaya contando
+        while (pos != -1) {
+            cont++;
+            //Sigue buscando a partir de la 1º posición
+            pos = sentence.indexOf(word, pos + 1);
+        }
 
-        return 0;
+        System.out.println(cont);
+        return cont;
     }
 
     public static void main(String[] args) throws IOException {
