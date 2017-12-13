@@ -25,20 +25,21 @@ public class Word_Column_Letters {
 
         System.out.print("Introduce una frase: ");
         sentence = tec.nextLine();
+        sentence += " ";
 
         boolean palabra = false;
         int finDeLinea = sentence.length() - 1;
 
         for (int i = 0; i < sentence.length(); i++) {
 
-            if (Character.isLetter(sentence.charAt(i)) == true) {
+            if (Character.isLetter(sentence.charAt(i))) {
                 palabra = true;
-                System.out.println(sentence.charAt(i));
+                System.out.print(sentence.charAt(i));
                 letters++;
-
+                //  || Character.isLetter(sentence.charAt(i)) && i == finDeLinea
             } else if (!Character.isLetter(sentence.charAt(i)) && palabra) {
 
-                System.out.println(word + " = " + letters);
+                System.out.println(" = " + letters);
                 palabra = false;
                 letters = 0;
             }
